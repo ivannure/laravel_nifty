@@ -2,13 +2,12 @@
 <html lang="en">
 
 
-<!-- Mirrored from themeon.net/nifty/v3.0.1/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Jan 2023 07:33:03 GMT -->
+<!-- Mirrored from themeon.net/nifty/v3.0.1/tables/gridjs/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Jan 2023 07:34:20 GMT -->
 <head>
-    <meta name="generator" content="Hugo 0.87.0" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <meta name="description" content="Nifty is a responsive admin dashboard template based on Bootstrap 5 framework. There are a lot of useful components.">
-    <title>Dashboard  | Nifty - Admin Template</title>
+    <meta name="description" content="A table library that works everywhere">
+    <title>Data Diri | Nifty - Admin Template</title>
 
     <!-- STYLESHEETS -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--- -->
@@ -19,10 +18,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&amp;family=Ubuntu:wght@400;500;700&amp;display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS [ REQUIRED ] -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.75a07e3a3100a6fed983b15ad1b297c127a8c2335854b0efc3363731475cbed6.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.75a07e3a3100a6fed983b15ad1b297c127a8c2335854b0efc3363731475cbed6.css">
 
     <!-- Nifty CSS [ REQUIRED ] -->
-    <link rel="stylesheet" href="assets/css/nifty.min.4d1ebee0c2ac4ed3c2df72b5178fb60181cfff43375388fee0f4af67ecf44050.css">
+    <link rel="stylesheet" href="../../assets/css/nifty.min.4d1ebee0c2ac4ed3c2df72b5178fb60181cfff43375388fee0f4af67ecf44050.css">
+
+    <!-- GridJS styles [ OPTIONAL ] -->
+    <link rel="stylesheet" href="../../assets/pages/gridjs.e1d3038bb47390cb5f45d445324bacec91d3521551788d5d4898e460eda844a3.css">
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~---
 
@@ -59,612 +61,206 @@
             <div class="content__header content__boxed overlapping">
                 <div class="content__wrap">
 
-                    <!-- Page title and information -->
-                    <h1 class="page-title mb-2">Dashboard</h1>
-                    <h2 class="h5">Welcome back to the Dashboard.</h2>
-                    <p>Scroll down to see quick links and overviews of your Server, To do list<br> Order status or get some Help using Nifty.</p>
-                    <!-- END : Page title and information -->
+                    <!-- Breadcrumb -->
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/data-diri/">Data Diri</a></li>
+                           
+                        </ol>
+                    </nav>
+                    <!-- END : Breadcrumb -->
 
+                    <h1 class="page-title mb-4 mt-2">Data Diri</h1> 
                 </div>
 
             </div>
 
             <div class="content__boxed">
                 <div class="content__wrap">
-                    <div class="row">
-                        <div class="col-xl-7 mb-3 mb-xl-0">
-
-                            <div class="card h-100">
-                                <div class="card-header d-flex align-items-center border-0">
-                                    <div class="me-auto">
-                                        <h3 class="h4 m-0">Network</h3>
-                                    </div>
-                                    <div class="toolbar-end">
-                                        <button type="button" class="btn btn-icon btn-sm btn-hover btn-light" aria-label="Refresh Network Chart">
-                                            <i class="demo-pli-repeat-2 fs-5"></i>
-                                        </button>
-                                        <div class="dropdown">
-                                            <button class="btn btn-icon btn-sm btn-hover btn-light" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Network dropdown">
-                                                <i class="demo-pli-dot-horizontal fs-4"></i>
-                                                <span class="visually-hidden">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                <li>
-                                                    <a href="#" class="dropdown-item">
-                                                        <i class="demo-pli-pen-5 fs-5 me-2"></i> Edit Date
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="dropdown-item">
-                                                        <i class="demo-pli-refresh fs-5 me-2"></i> Refresh
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <hr class="dropdown-divider">
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="dropdown-item">
-                                                        <i class="demo-pli-file-csv fs-5 me-2"></i> Save as CSV
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="dropdown-item">
-                                                        <i class="demo-pli-calendar-4 fs-5 me-2"></i> View Details
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Network - Area Chart -->
-                                <div class="card-body py-0" style="height: 250px; max-height: 275px">
-                                    <canvas id="_dm-networkChart"></canvas>
-                                </div>
-                                <!-- END : Network - Area Chart -->
-
-                                <div class="card-body mt-4">
-                                    <div class="row">
-                                        <div class="col-md-8">
-
-                                            <!-- CPU Temperature -->
-                                            <h4 class="h5 mb-3">CPU Temperature</h4>
-                                            <div class="row">
-                                                <div class="col-5">
-                                                    <div class="h5 display-6 fw-normal">
-                                                        43.7 <span class="fw-bold fs-5 align-top">°C</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-7 text-sm">
-                                                    <div class="d-flex justify-content-between align-items-start px-3 mb-3">
-                                                        Min Values
-                                                        <span class="d-block badge bg-success ms-auto">27°</span>
-                                                    </div>
-                                                    <div class="d-flex justify-content-between align-items-start px-3">
-                                                        Max Values
-                                                        <span class="d-block badge bg-danger ms-auto">89°</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END : CPU Temperature -->
-
-                                            <!-- Today Tips -->
-                                            <div class="mt-4">
-                                                <h5>Today Tips</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
-                                            </div>
-                                            <!-- END : Today Tips -->
-
-                                        </div>
-                                        <div class="col-md-4">
-
-                                            <!-- Bandwidth usage and progress bars -->
-                                            <h4 class="h5 mb-3">Bandwidth Usage</h4>
-                                            <div class="h2 fw-normal">
-                                                754.9<span class="ms-2 fs-6 align-top">Mbps</span>
-                                            </div>
-
-                                            <div class="mt-4 mb-2 d-flex justify-content-between">
-                                                <span class="">Income</span>
-                                                <span class="">70%</span>
-                                            </div>
-                                            <div class="progress progress-md">
-                                                <div class="progress-bar bg-success" role="progressbar" style="width: 70%" aria-label="Incoming Progress" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-
-                                            <div class="mt-4 mb-2 d-flex justify-content-between">
-                                                <span class="">Outcome</span>
-                                                <span class="">10%</span>
-                                            </div>
-                                            <div class="progress progress-md">
-                                                <div class="progress-bar bg-info" role="progressbar" style="width: 10%" aria-label="Outcome Progress" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                            <!-- END : Bandwidth usage and progress bars -->
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-5">
-                            <div class="row">
-                                <div class="col-sm-6">
-
-                                    <!-- Tile - HDD Usage -->
-                                    <div class="card bg-success text-white overflow-hidden mb-3">
-                                        <div class="p-3 pb-2">
-                                            <h5 class="mb-3"><i class="demo-psi-data-storage text-reset text-opacity-75 fs-3 me-2"></i> HDD Usage</h5>
-                                            <ul class="list-group list-group-borderless">
-                                                <li class="list-group-item p-0 text-reset d-flex justify-content-between align-items-start">
-                                                    <div class="me-auto">Free Space</div>
-                                                    <span class="fw-bold">132Gb</span>
-                                                </li>
-                                                <li class="list-group-item p-0 text-reset d-flex justify-content-between align-items-start">
-                                                    <div class="me-auto">Used space</div>
-                                                    <span class="fw-bold">1,45Gb</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Area Chart -->
-                                        <div class="py-0" style="height: 70px; margin: 0 -5px -5px;">
-                                            <canvas id="_dm-hddChart"></canvas>
-                                        </div>
-                                        <!-- END : Area Chart -->
-
-                                    </div>
-                                    <!-- END : Tile - HDD Usage -->
-
-                                </div>
-                                <div class="col-sm-6">
-
-                                    <!-- Tile - Earnings -->
-                                    <div class="card bg-info text-white overflow-hidden mb-3">
-                                        <div class="p-3 pb-2">
-                                            <h5 class="mb-3"><i class="demo-psi-coin text-reset text-opacity-75 fs-2 me-2"></i> Earning</h5>
-                                            <ul class="list-group list-group-borderless">
-                                                <li class="list-group-item p-0 text-reset d-flex justify-content-between align-items-start">
-                                                    <div class="me-auto">Today</div>
-                                                    <span class="fw-bold">$764</span>
-                                                </li>
-                                                <li class="list-group-item p-0 text-reset d-flex justify-content-between align-items-start">
-                                                    <div class="me-auto">Last 7 Day</div>
-                                                    <span class="fw-bold">$1,332</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Line Chart -->
-                                        <div class="py-0" style="height: 70px; margin: 0 -5px -5px;">
-                                            <canvas id="_dm-earningChart"></canvas>
-                                        </div>
-                                        <!-- END : Line Chart -->
-
-                                    </div>
-                                    <!-- END : Tile - Earnings -->
-
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-
-                                    <!-- Tile - Sales -->
-                                    <div class="card bg-purple text-white overflow-hidden mb-3">
-                                        <div class="p-3 pb-2">
-                                            <h5 class="mb-3"><i class="demo-psi-basket-coins text-reset text-opacity-75 fs-2 me-2"></i> Sales</h5>
-                                            <ul class="list-group list-group-borderless">
-                                                <li class="list-group-item p-0 text-reset d-flex justify-content-between align-items-start">
-                                                    <div class="me-auto">Today</div>
-                                                    <span class="fw-bold">$764</span>
-                                                </li>
-                                                <li class="list-group-item p-0 text-reset d-flex justify-content-between align-items-start">
-                                                    <div class="me-auto">Last 7 Day</div>
-                                                    <span class="fw-bold">$1,332</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Bar Chart -->
-                                        <div class="py-0" style="height: 70px">
-                                            <canvas id="_dm-salesChart"></canvas>
-                                        </div>
-                                        <!-- END : Bar Chart -->
-
-                                    </div>
-                                    <!-- END : Tile - Sales -->
-
-                                </div>
-                                <div class="col-sm-6">
-
-                                    <!-- Tile - Task Progress -->
-                                    <div class="card bg-warning text-white overflow-hidden mb-3">
-                                        <div class="p-3 pb-2">
-                                            <h5 class="mb-3"><i class="demo-psi-basket-coins text-reset text-opacity-75 fs-2 me-2"></i> Task Progress</h5>
-                                            <ul class="list-group list-group-borderless">
-                                                <li class="list-group-item p-0 text-reset d-flex justify-content-between align-items-start">
-                                                    <div class="me-auto">Completed</div>
-                                                    <span class="fw-bold">34</span>
-                                                </li>
-                                                <li class="list-group-item p-0 text-reset d-flex justify-content-between align-items-start">
-                                                    <div class="me-auto">Total</div>
-                                                    <span class="fw-bold">79</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Horizontal Bar Chart -->
-                                        <div class="py-0 pb-2" style="height: 70px">
-                                            <canvas id="_dm-taskChart"></canvas>
-                                        </div>
-                                        <!-- END : Horizontal Bar Chart -->
-
-                                    </div>
-                                    <!-- END : Tile - Task Progress -->
-
-                                </div>
-                            </div>
-
-                            <!-- Simple state widget -->
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0 p-3">
-                                            <div class="h3 display-3">95</div>
-                                            <span class="h6">New Friends</span>
-                                        </div>
-                                        <div class="flex-grow-1 text-center ms-3">
-                                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-                                            <button class="btn btn-sm btn-danger">View Details</button>
-
-                                            <!-- Social media statistics -->
-                                            <div class="mt-4 pt-3 d-flex justify-content-around border-top">
-                                                <div class="text-center">
-                                                    <h4 class="mb-1">1,345</h4>
-                                                    <small class="text-muted">Following</small>
-                                                </div>
-                                                <div class="text-center">
-                                                    <h4 class="mb-1">23k</h4>
-                                                    <small class="text-muted">Followers</small>
-                                                </div>
-                                                <div class="text-center">
-                                                    <h4 class="mb-1">278</h4>
-                                                    <small class="text-muted">Posts</small>
-                                                </div>
-                                            </div>
-                                            <!-- END : Social media statistics -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END : Simple state widget -->
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="content__boxed bg-gray-500 my-3 pt-3">
-                <div class="content__wrap">
-
-                    <div class="row gx-5 gy-5 gy-md-0">
-                        <div class="col-md-4">
-
-                            <!-- TODO List -->
-                            <h4 class="mb-3">To-do list</h4>
-                            <ul class="list-group list-group-borderless">
-                                <li class="list-group-item px-0">
-                                    <div class="form-check ">
-                                        <input id="_dm-todoList1" class="form-check-input" type="checkbox" checked>
-                                        <label for="_dm-todoList1" class="form-check-label text-decoration-line-through">
-                                            Find an idea <span class="badge bg-danger text-decoration-line-through">Important</span>
-                                        </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item px-0">
-                                    <div class="form-check">
-                                        <input id="_dm-todoList2" class="form-check-input" type="checkbox">
-                                        <label for="_dm-todoList2" class="form-check-label">
-                                            Do some work
-                                        </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item px-0">
-                                    <div class="form-check">
-                                        <input id="_dm-todoList3" class="form-check-input" type="checkbox">
-                                        <label for="_dm-todoList3" class="form-check-label">
-                                            Read the book
-                                        </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item px-0">
-                                    <div class="form-check">
-                                        <input id="_dm-todoList4" class="form-check-input" type="checkbox">
-                                        <label for="_dm-todoList4" class="form-check-label">
-                                            Upgrade server <span class="badge bg-warning">Warning</span>
-                                        </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item px-0">
-                                    <div class="form-check">
-                                        <input id="_dm-todoList5" class="form-check-input" type="checkbox">
-                                        <label for="_dm-todoList5" class="form-check-label">
-                                            Redesign my logo <span class="badge bg-info">2 Mins</span>
-                                        </label>
-                                    </div>
-                                </li>
-                            </ul>
-
-                            <div class="input-group mt-3">
-                                <input type="text" class="form-control form-control-sm" placeholder="Add new list" aria-label="Add new list" aria-describedby="button-addon">
-                                <button id="button-addon" class="btn btn-sm btn-secondary hstack gap-2" type="button">
-                                    <i class="demo-psi-add text-white-50 fs-4"></i> Add New
-                                </button>
-                            </div>
-                            <!-- END : TODO List -->
-
-                        </div>
-                        <div class="col-md-4">
-
-                            <!-- Service options -->
-                            <h4 class="mb-3">Services</h4>
-                            <div class="list-group list-group-borderless">
-                                <div class="list-group-item px-0 mb-2">
-                                    <div class="d-flex justify-content-between">
-                                        <label class="form-check-label h5 mb-0" for="_dm-dbPersonalStatus">Show my personal status</label>
-                                        <div class="form-check form-switch">
-                                            <input id="_dm-dbPersonalStatus" class="form-check-input" type="checkbox" checked>
-                                        </div>
-                                    </div>
-                                    <span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</span>
-                                </div>
-
-                                <div class="list-group-item px-0 mb-2">
-                                    <div class="d-flex justify-content-between">
-                                        <label class="form-check-label h5 mb-0" for="_dm-dbOfflineContact">Show offline contact</label>
-                                        <div class="form-check form-switch">
-                                            <input id="_dm-dbOfflineContact" class="form-check-input" type="checkbox">
-                                        </div>
-                                    </div>
-                                    <span>Aenean commodo ligula eget dolor. Aenean massa.</span>
-                                </div>
-
-                                <div class="list-group-item px-0 mb-2">
-                                    <div class="d-flex justify-content-between">
-                                        <label class="form-check-label h5 mb-0" for="_dm-dbMuteNotifications">Mute notifications</label>
-                                        <div class="form-check form-switch">
-                                            <input id="_dm-dbMuteNotifications" class="form-check-input" type="checkbox">
-                                        </div>
-                                    </div>
-                                    <span>Aenean commodo ligula eget dolor. Aenean massa.</span>
-                                </div>
-
-                                <div class="list-group-item px-0 mb-2">
-                                    <div class="d-flex justify-content-between">
-                                        <label class="form-check-label h5 mb-0" for="_dm-dbInvisibleMode">Invisible Mode</label>
-                                        <div class="form-check form-switch">
-                                            <input id="_dm-dbInvisibleMode" class="form-check-input" type="checkbox" checked>
-                                        </div>
-                                    </div>
-                                    <span>Nascetur ridiculus mus.</span>
-                                </div>
-                            </div>
-                            <!-- END : Service options -->
-
-                        </div>
-                        <div class="col-md-4">
-
-                            <!-- User quote  -->
-                            <div class="d-flex align-items-center">
-                                <div class="flex-shrink-0">
-                                    <img class="img-lg rounded-circle" src="assets/img/profile-photos/10.png" alt="Profile Picture" loading="lazy">
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="#" class="d-block h5 text-decoration-none mb-0">Kathryn Obrien</a>
-                                    Project manager
-                                </div>
-                            </div>
-
-                            <figure class="d-flex flex-column align-items-center justify-content-center my-4">
-                                <blockquote class="blockquote mb-0">
-                                    <p class="quote">Lorem ipsum dolor sit amet, consecte tuer adipiscing elit, sed diam nonummy nibh euismod tincidunt</p>
-                                </blockquote>
-                            </figure>
-
-                            <div class="border-top pt-3">
-                                <a href="#" class="btn btn-icon btn-link text-indigo" aria-label="Facebook button">
-                                    <i class="demo-psi-facebook fs-4"></i>
-                                </a>
-                                <a href="#" class="btn btn-icon btn-link text-info" aria-label="Twitter button">
-                                    <i class="demo-psi-twitter fs-4"></i>
-                                </a>
-                                <a href="#" class="btn btn-icon btn-link text-red" aria-label="Google plus button">
-                                    <i class="demo-psi-google-plus fs-4"></i>
-                                </a>
-                                <a href="#" class="btn btn-icon btn-link text-orange" aria-label="Instagram button">
-                                    <i class="demo-psi-instagram fs-4"></i>
-                                </a>
-                            </div>
-                            <!-- END : User quote  -->
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="content__boxed">
-                <div class="content__wrap">
-
-                    <!-- Table with toolbar -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title mb-3">Order Status</h5>
-                            <div class="row">
-
-                                <!-- Left toolbar -->
-                                <div class="col-md-6 d-flex gap-1 align-items-center mb-3">
-                                    <button class="btn btn-primary hstack gap-2 align-self-center">
-                                        <i class="demo-psi-add fs-5"></i>
-                                        <span class="vr"></span>
-                                        Add New
-                                    </button>
-                                    <button class="btn btn-icon btn-outline-light" aria-label="Print table">
-                                        <i class="demo-pli-printer fs-5"></i>
-                                    </button>
-                                    <div class="btn-group">
-                                        <button class="btn btn-icon btn-outline-light" aria-label="Information"><i class="demo-pli-exclamation fs-5"></i></button>
-                                        <button class="btn btn-icon btn-outline-light" aria-label="Remove"><i class="demo-pli-recycling fs-5"></i></button>
-                                    </div>
-                                </div>
-                                <!-- END : Left toolbar -->
-
-                                <!-- Right Toolbar -->
-                                <div class="col-md-6 d-flex gap-1 align-items-center justify-content-md-end mb-3">
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Search..." class="form-control" autocomplete="off">
-                                    </div>
-                                    <div class="btn-group">
-                                        <button class="btn btn-icon btn-outline-light" aria-label="Download"><i class="demo-pli-download-from-cloud fs-5"></i></button>
-                                        <div class="btn-group dropdown">
-                                            <button class="btn btn-icon btn-outline-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <span class="visually-hidden">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                                <li>
-                                                    <hr class="dropdown-divider">
-                                                </li>
-                                                <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END : Right Toolbar -->
-
-                            </div>
-                        </div>
-
+                    <div class="card mb-3">
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Invoice</th>
-                                            <th>User</th>
-                                            <th>Order date</th>
-                                            <th>Amount</th>
-                                            <th class="text-center">Status</th>
-                                            <th class="text-center">Tracking Number</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><a href="#" class="btn-link"> Order #53431</a></td>
-                                            <td>Steve N. Horton</td>
-                                            <td><span class="text-muted"><i class="demo-pli-clock"></i> Oct 22, 2021</span></td>
-                                            <td>$45.00</td>
-                                            <td class="text-center fs-5">
-                                                <div class="d-block badge bg-success">Paid</div>
-                                            </td>
-                                            <td class="text-center">-</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#" class="btn-link"> Order #53432</a></td>
-                                            <td>Charles S Boyle</td>
-                                            <td><span class="text-muted"><i class="demo-pli-clock"></i> Oct 24, 2021</span></td>
-                                            <td>$245.30</td>
-                                            <td class="text-center fs-5">
-                                                <div class="d-block badge bg-info">Shipped</div>
-                                            </td>
-                                            <td class="text-center">CGX0089734531</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#" class="btn-link"> Order #53433</a></td>
-                                            <td>Lucy Doe</td>
-                                            <td><span class="text-muted"><i class="demo-pli-clock"></i> Oct 24, 2021</span></td>
-                                            <td>$38.00</td>
-                                            <td class="text-center fs-5">
-                                                <div class="d-block badge bg-info">Shipped</div>
-                                            </td>
-                                            <td class="text-center">CGX0089934571</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#" class="btn-link"> Order #53434</a></td>
-                                            <td>Teresa L. Doe</td>
-                                            <td><span class="text-muted"><i class="demo-pli-clock"></i> Oct 15, 2021</span></td>
-                                            <td>$77.99</td>
-                                            <td class="text-center fs-5">
-                                                <div class="d-block badge bg-info">Shipped</div>
-                                            </td>
-                                            <td class="text-center">CGX0089734574</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#" class="btn-link"> Order #53435</a></td>
-                                            <td>Teresa L. Doe</td>
-                                            <td><span class="text-muted"><i class="demo-pli-clock"></i> Oct 12, 2021</span></td>
-                                            <td>$18.00</td>
-                                            <td class="text-center fs-5">
-                                                <div class="d-block badge bg-success">Paid</div>
-                                            </td>
-                                            <td class="text-center">-</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#" class="btn-link">Order #53437</a></td>
-                                            <td>Charles S Boyle</td>
-                                            <td><span class="text-muted"><i class="demo-pli-clock"></i> Oct 17, 2021</span></td>
-                                            <td>$658.00</td>
-                                            <td class="text-center fs-5">
-                                                <div class="d-block badge bg-danger">Refunded</div>
-                                            </td>
-                                            <td class="text-center">-</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#" class="btn-link">Order #536584</a></td>
-                                            <td>Scott S. Calabrese</td>
-                                            <td><span class="text-muted"><i class="demo-pli-clock"></i> Oct 19, 2021</span></td>
-                                            <td>$45.58</td>
-                                            <td class="text-center fs-5">
-                                                <div class="d-block badge bg-warning">Unpaid</div>
-                                            </td>
-                                            <td class="text-center">-</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+
+                            <div class="mb-3">
+                                @if (session('sukses'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>{{ session('sukses') }}</strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
+                                <h2>Data Diri</h2>
+                                <button class="btn btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-plus me-2"></i>Tambah Data User</button>
                             </div>
 
-                            <nav class="text-align-center mt-5" aria-label="Table navigation">
-                                <ul class="pagination justify-content-center">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#">Previous</a>
-                                    </li>
-                                    <li class="page-item active" aria-current="page">
-                                        <span class="page-link">1</span>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">Next</a>
-                                    </li>
-                                </ul>
-                            </nav>
+                            <h5 class="card-title">Tabel Data Diri</h5>
+                            
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Action</th>
+                             
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                @foreach ($tabel as $index => $data)
+                                  <tr>
+                                    <th scope="row">{{$index + $tabel->firstItem()}}</th>
+                                    <td>{{$data->username}}</td>
+                                    <td>{{$data->email}}</td>
+                                    <td><a href="" type="button" class="btn btn-warning btn-sm">Edit</a> 
+                                        <a href="" type="button" class="btn btn-danger btn-sm">Hapus</a> 
+                                      </td>
+                                  </tr>
+                                  @endforeach
+                                </tbody>
+                              </table>
+                              <div class="text-center">
+                                {{ $tabel->links() }}
+                              </div>
+                              
+                             
                         </div>
                     </div>
-                    <!-- END : Table with toolbar -->
 
                 </div>
+
+                
             </div>
-           @include('layouts.footer')
+            
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Diri</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="/data-diri/store" method="post">
+                        @csrf
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Username</label>
+                          <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Email</label>
+                          <input type="email" class="form-control" name="email" id="exampleInputPassword1" required>
+                        </div> 
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Password</label>
+                          <input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
+                        </div> 
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Tambah</button>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+              </div>
+            <!-- FOOTER -->
+            @include('layouts.footer')
+            <!-- END - FOOTER -->
+
         </section>
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- END - CONTENTS -->
 
+        <!-- HEADER -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         @include('layouts.header')
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- END - HEADER -->
+{{-- 
+        @include('layouts.sidebar') --}}
+                <!-- MAIN NAVIGATION -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <nav id="mainnav-container" class="mainnav">
+            <div class="mainnav__inner">
 
-        @include('layouts.sidebar')
+                <!-- Navigation menu -->
+                <div class="mainnav__top-content scrollable-content pb-5">
+
+                    <!-- Profile Widget -->
+                    <div class="mainnav__profile mt-3 d-flex3">
+
+                        <div class="mt-2 d-mn-max"></div>
+
+                        <!-- Profile picture  -->
+                        <div class="mininav-toggle text-center py-2">
+                            <img class="mainnav__avatar img-md rounded-circle border" src="{{asset('assets/img/profile-photos/1.png')}}" alt="Profile Picture">
+                        </div>
+
+                        <div class="mininav-content collapse d-mn-max">
+                            <div class="d-grid">
+
+                                <!-- User name and position -->
+                                <button class="d-block btn shadow-none p-2" data-bs-toggle="collapse" data-bs-target="#usernav" aria-expanded="false" aria-controls="usernav">
+                                    <span class="dropdown-toggle d-flex justify-content-center align-items-center">
+                                        <h6 class="mb-0 me-3">Aaron Chavez</h6>
+                                    </span>
+                                    <small class="text-muted">Administrator</small>
+                                </button>
+
+                                <!-- Collapsed user menu -->
+                                <div id="usernav" class="nav flex-column collapse">
+                                    <a href="#" class="nav-link d-flex justify-content-between align-items-center">
+                                        <span><i class="demo-pli-mail fs-5 me-2"></i><span class="ms-1">Messages</span></span>
+                                        <span class="badge bg-danger rounded-pill">14</span>
+                                    </a>
+                                    <a href="#" class="nav-link">
+                                        <i class="demo-pli-male fs-5 me-2"></i>
+                                        <span class="ms-1">Profile</span>
+                                    </a>
+                                    <a href="#" class="nav-link">
+                                        <i class="demo-pli-gear fs-5 me-2"></i>
+                                        <span class="ms-1">Settings</span>
+                                    </a>
+                                    <a href="#" class="nav-link">
+                                        <i class="demo-pli-computer-secure fs-5 me-2"></i>
+                                        <span class="ms-1">Lock screen</span>
+                                    </a>
+                                    <a href="#" class="nav-link">
+                                        <i class="demo-pli-unlock fs-5 me-2"></i>
+                                        <span class="ms-1">Logout</span>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- End - Profile widget -->
+
+                    <!-- Navigation Category -->
+                    <div class="mainnav__categoriy py-3">
+                        <h6 class="mainnav__caption mt-0 px-3 fw-bold">Navigation</h6>
+                        <ul class="mainnav__menu nav flex-column">
+
+                            <!-- Link with submenu -->
+                            
+
+                                <a href="/data-diri/" class="mininav-toggle nav-link"><i class="demo-pli-home fs-5 me-2"></i>
+                                    <span class="nav-label ms-1">Data Diri</span>
+                                </a>
+
+                </div>
+                <!-- End - Navigation menu -->
+
+                <!-- End - Bottom navigation menu -->
+
+            </div>
+        </nav>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- END - MAIN NAVIGATION -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- END - MAIN NAVIGATION -->
 
         <!-- SIDEBAR -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -712,7 +308,7 @@
 
                             <div class="list-group-item list-group-item-action d-flex align-items-start mb-2">
                                 <div class="flex-shrink-0 me-3">
-                                    <img class="img-xs rounded-circle" src="assets/img/profile-photos/2.png" alt="Profile Picture" loading="lazy">
+                                    <img class="img-xs rounded-circle" src="../../assets/img/profile-photos/2.png" alt="Profile Picture" loading="lazy">
                                 </div>
                                 <div class="flex-grow-1 ">
                                     <a href="#" class="h6 d-block mb-0 stretched-link text-decoration-none">Stephen Tran</a>
@@ -722,7 +318,7 @@
 
                             <div class="list-group-item list-group-item-action d-flex align-items-start mb-2">
                                 <div class="flex-shrink-0 me-3">
-                                    <img class="img-xs rounded-circle" src="assets/img/profile-photos/8.png" alt="Profile Picture" loading="lazy">
+                                    <img class="img-xs rounded-circle" src="../../assets/img/profile-photos/8.png" alt="Profile Picture" loading="lazy">
                                 </div>
                                 <div class="flex-grow-1 ">
                                     <a href="#" class="h6 d-block mb-0 stretched-link text-decoration-none">Betty Murphy</a>
@@ -732,7 +328,7 @@
 
                             <div class="list-group-item list-group-item-action d-flex align-items-start mb-2">
                                 <div class="flex-shrink-0 me-3">
-                                    <img class="img-xs rounded-circle" src="assets/img/profile-photos/7.png" alt="Profile Picture" loading="lazy">
+                                    <img class="img-xs rounded-circle" src="../../assets/img/profile-photos/7.png" alt="Profile Picture" loading="lazy">
                                 </div>
                                 <div class="flex-grow-1 ">
                                     <a href="#" class="h6 d-block mb-0 stretched-link text-decoration-none">Brittany Meyer</a>
@@ -742,7 +338,7 @@
 
                             <div class="list-group-item list-group-item-action d-flex align-items-start mb-2">
                                 <div class="flex-shrink-0 me-3">
-                                    <img class="img-xs rounded-circle" src="assets/img/profile-photos/4.png" alt="Profile Picture" loading="lazy">
+                                    <img class="img-xs rounded-circle" src="../../assets/img/profile-photos/4.png" alt="Profile Picture" loading="lazy">
                                 </div>
                                 <div class="flex-grow-1 ">
                                     <a href="#" class="h6 d-block mb-0 stretched-link text-decoration-none">Jack George</a>
@@ -953,52 +549,52 @@
                     <h5 class="mb-4">Blurred</h5>
                     <div class="_dm-boxbg__img-container d-flex flex-wrap">
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/blurred/thumbs/1.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/blurred/thumbs/1.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/blurred/thumbs/2.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/blurred/thumbs/2.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/blurred/thumbs/3.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/blurred/thumbs/3.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/blurred/thumbs/4.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/blurred/thumbs/4.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/blurred/thumbs/5.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/blurred/thumbs/5.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/blurred/thumbs/6.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/blurred/thumbs/6.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/blurred/thumbs/7.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/blurred/thumbs/7.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/blurred/thumbs/8.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/blurred/thumbs/8.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/blurred/thumbs/9.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/blurred/thumbs/9.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/blurred/thumbs/10.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/blurred/thumbs/10.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/blurred/thumbs/11.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/blurred/thumbs/11.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/blurred/thumbs/12.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/blurred/thumbs/12.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/blurred/thumbs/13.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/blurred/thumbs/13.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/blurred/thumbs/14.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/blurred/thumbs/14.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/blurred/thumbs/15.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/blurred/thumbs/15.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/blurred/thumbs/16.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/blurred/thumbs/16.jpg" alt="Background Image" loading="lazy">
                         </a>
                     </div>
                 </div>
@@ -1009,52 +605,52 @@
                     <h5 class="mb-4">Polygon &amp; Geometric</h5>
                     <div class="_dm-boxbg__img-container d-flex flex-wrap">
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/polygon/thumbs/1.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/polygon/thumbs/1.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/polygon/thumbs/2.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/polygon/thumbs/2.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/polygon/thumbs/3.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/polygon/thumbs/3.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/polygon/thumbs/4.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/polygon/thumbs/4.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/polygon/thumbs/5.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/polygon/thumbs/5.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/polygon/thumbs/6.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/polygon/thumbs/6.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/polygon/thumbs/7.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/polygon/thumbs/7.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/polygon/thumbs/8.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/polygon/thumbs/8.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/polygon/thumbs/9.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/polygon/thumbs/9.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/polygon/thumbs/10.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/polygon/thumbs/10.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/polygon/thumbs/11.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/polygon/thumbs/11.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/polygon/thumbs/12.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/polygon/thumbs/12.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/polygon/thumbs/13.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/polygon/thumbs/13.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/polygon/thumbs/14.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/polygon/thumbs/14.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/polygon/thumbs/15.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/polygon/thumbs/15.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/polygon/thumbs/16.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/polygon/thumbs/16.jpg" alt="Background Image" loading="lazy">
                         </a>
                     </div>
                 </div>
@@ -1065,52 +661,52 @@
                     <h5 class="mb-4">Abstract</h5>
                     <div class="_dm-boxbg__img-container d-flex flex-wrap">
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/abstract/thumbs/1.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/abstract/thumbs/1.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/abstract/thumbs/2.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/abstract/thumbs/2.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/abstract/thumbs/3.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/abstract/thumbs/3.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/abstract/thumbs/4.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/abstract/thumbs/4.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/abstract/thumbs/5.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/abstract/thumbs/5.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/abstract/thumbs/6.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/abstract/thumbs/6.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/abstract/thumbs/7.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/abstract/thumbs/7.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/abstract/thumbs/8.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/abstract/thumbs/8.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/abstract/thumbs/9.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/abstract/thumbs/9.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/abstract/thumbs/10.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/abstract/thumbs/10.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/abstract/thumbs/11.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/abstract/thumbs/11.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/abstract/thumbs/12.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/abstract/thumbs/12.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/abstract/thumbs/13.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/abstract/thumbs/13.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/abstract/thumbs/14.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/abstract/thumbs/14.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/abstract/thumbs/15.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/abstract/thumbs/15.jpg" alt="Background Image" loading="lazy">
                         </a>
                         <a href="#" class="_dm-boxbg__thumb ratio ratio-16x9">
-                            <img class="img-responsive" src="assets/premium/boxed-bg/abstract/thumbs/16.jpg" alt="Background Image" loading="lazy">
+                            <img class="img-responsive" src="../../assets/premium/boxed-bg/abstract/thumbs/16.jpg" alt="Background Image" loading="lazy">
                         </a>
                     </div>
                 </div>
@@ -1350,7 +946,7 @@
 
                                 <!-- Scheme Button -->
                                 <button type="button" class="btn shadow-none">
-                                    <img src="assets/img/color-schemes/expanded-header.png" alt="color scheme illusttration" loading="lazy">
+                                    <img src="../../assets/img/color-schemes/expanded-header.png" alt="color scheme illusttration" loading="lazy">
                                 </button>
 
                                 <!-- Scheme Colors -->
@@ -1382,7 +978,7 @@
 
                                 <!-- Scheme Button -->
                                 <button type="button" class="btn shadow-none">
-                                    <img src="assets/img/color-schemes/fair-header.png" alt="color scheme illusttration" loading="lazy">
+                                    <img src="../../assets/img/color-schemes/fair-header.png" alt="color scheme illusttration" loading="lazy">
                                 </button>
 
                                 <!-- Scheme Colors -->
@@ -1414,7 +1010,7 @@
 
                                 <!-- Scheme Button -->
                                 <button type="button" class="btn shadow-none">
-                                    <img src="assets/img/color-schemes/full-header.png" alt="color scheme illusttration" loading="lazy">
+                                    <img src="../../assets/img/color-schemes/full-header.png" alt="color scheme illusttration" loading="lazy">
                                 </button>
 
                                 <!-- Scheme Colors -->
@@ -1448,7 +1044,7 @@
 
                                 <!-- Scheme Button -->
                                 <button type="button" class="btn shadow-none">
-                                    <img src="assets/img/color-schemes/navigation.png" alt="color scheme illusttration" loading="lazy">
+                                    <img src="../../assets/img/color-schemes/navigation.png" alt="color scheme illusttration" loading="lazy">
                                 </button>
 
                                 <!-- Scheme Colors -->
@@ -1480,7 +1076,7 @@
 
                                 <!-- Scheme Button -->
                                 <button type="button" class="btn shadow-none">
-                                    <img src="assets/img/color-schemes/brand.png" alt="color scheme illusttration" loading="lazy">
+                                    <img src="../../assets/img/color-schemes/brand.png" alt="color scheme illusttration" loading="lazy">
                                 </button>
 
                                 <!-- Scheme Colors -->
@@ -1511,7 +1107,7 @@
 
                                 <!-- Scheme Button -->
                                 <button type="button" class="btn shadow-none">
-                                    <img src="assets/img/color-schemes/tall-header.png" alt="color scheme illusttration" loading="lazy">
+                                    <img src="../../assets/img/color-schemes/tall-header.png" alt="color scheme illusttration" loading="lazy">
                                 </button>
 
                                 <!-- Scheme Colors -->
@@ -1599,18 +1195,20 @@
 
     <!-- JAVASCRIPTS -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    {{-- font awasome --}}
+    <script src="https://kit.fontawesome.com/1042f724b4.js" crossorigin="anonymous"></script>
 
     <!-- Bootstrap JS [ OPTIONAL ] -->
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/bootstrap.min.bdf649e4bf3fa0261445f7c2ed3517c3f300c9bb44cb991c504bdc130a6ead19.js" defer></script>
+    <script data-cfasync="false" src="../../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../../assets/js/bootstrap.min.bdf649e4bf3fa0261445f7c2ed3517c3f300c9bb44cb991c504bdc130a6ead19.js" defer></script>
 
     <!-- Nifty JS [ OPTIONAL ] -->
-    <script src="assets/js/nifty.min.b53472f123acc27ffd0c586e4ca3dc5d83c0670a3a5e120f766f88a92240f57b.js" defer></script>
+    <script src="../../assets/js/nifty.min.b53472f123acc27ffd0c586e4ca3dc5d83c0670a3a5e120f766f88a92240f57b.js" defer></script>
 
     <!-- Plugin scripts [ OPTIONAL ] -->
-    <script src="assets/pages/dashboard-1.min.07239cfbfa13a684f5c4668d5282cf217c7793bc57557b4ec22c36740ffb5bf1.js" defer></script>
+    <script src="../../assets/pages/gridjs.min.d520dabe68d38340f7a56fda29a0b5ac8216fcbdc172a524cffb890c7a13db0d.js" defer></script>
 
 </body>
 
 
-<!-- Mirrored from themeon.net/nifty/v3.0.1/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Jan 2023 07:33:49 GMT -->
+<!-- Mirrored from themeon.net/nifty/v3.0.1/tables/gridjs/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Jan 2023 07:34:22 GMT -->
 </html>

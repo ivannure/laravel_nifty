@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DatadiriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,17 +30,27 @@ Route::prefix('dashboard')->group(function () {
     });
 });
 
+
 Route::prefix('auth')->group(function () {
-    Route::get('/login', function () {
-        return view('front-pages.login.index');
-    });
+   
+    Route::get('/login', [AuthController::class, 'login']);
+    Route::post('/login', [AuthController::class, 'loginPost'])->name('login.post');
     Route::get('/register', function () {
         return view('front-pages.register.index');
     });
     Route::get('/forgot-password', function () {
         return view('front-pages.password-reminder.index');
     });
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
+
+Route::prefix('data-diri')->group(function () {
+   
+    Route::get('/', [DatadiriController::class, 'index']);
+    Route::post('/store', [DatadiriController::class, 'store']);
+
+});
+
 Route::prefix('tables')->group(function () {
     Route::get('/static', function () {
         return view('tables.static-tables.index');

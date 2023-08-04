@@ -186,14 +186,13 @@
                         <div class="mininav-toggle text-center py-2 d-mn-min">
                             <i class="demo-pli-monitor-2"></i>
                         </div>
-
-                
-
                         <!-- Widget content -->
-                        <div class="mininav-content collapse d-mn-max">
-                            
-                            <div class="d-grid px-3 mt-3">
-                                <a href="/auth/login" class="btn btn-sm btn-danger">Logout</a>
+                        <div class="mininav-content collapse d-mn-max">        
+                            <div class="d-grid px-3 mt-3 ms-3">
+                                <form action="/auth/logout" method="POST">
+                                    @csrf
+                                    <button class="btn btn-sm btn-danger" type="submit">Logout</button>
+                                </form>
                             </div>
                         </div>
                     </div>
