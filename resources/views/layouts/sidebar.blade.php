@@ -22,7 +22,7 @@
                                 <!-- User name and position -->
                                 <button class="d-block btn shadow-none p-2" data-bs-toggle="collapse" data-bs-target="#usernav" aria-expanded="false" aria-controls="usernav">
                                     <span class="dropdown-toggle d-flex justify-content-center align-items-center">
-                                        <h6 class="mb-0 me-3">Aaron Chavez</h6>
+                                        <h6 class="mb-0 me-3">{{Session::get('username')}}</h6>
                                     </span>
                                     <small class="text-muted">Administrator</small>
                                 </button>
@@ -137,7 +137,7 @@
                             <!-- Link with submenu -->
                             <li class="nav-item has-sub">
 
-                                <a href="#" class="mininav-toggle nav-link collapsed"><i class="demo-pli-receipt-4 fs-5 me-2"></i>
+                                <a class="mininav-toggle nav-link collapsed"><i class="demo-pli-receipt-4 fs-5 me-2"></i>
                                     <span class="nav-label ms-1">Tables</span>
                                 </a>
 
@@ -157,6 +157,7 @@
                                 <!-- END : Tables submenu list -->
 
                             </li>
+                            
                             <!-- END : Link with submenu -->
 
                             <!-- Link with submenu -->
@@ -168,7 +169,30 @@
                             <!-- END : Link with submenu -->
 
                         </ul>
-                    </div>
+                        <a href="/data-diri/" class="mininav-toggle nav-link"><i class="fa-regular fa-circle-user fs-5 me-2"></i>
+                            <span class="nav-label ms-1">Data Diri</span>
+                        </a>
+                        <ul class="mainnav__menu nav flex-column">
+                            <li class="nav-item has-sub">
+
+                                <a href="#" class="mininav-toggle nav-link collapsed"><i class="fa-solid fa-dolly fs-5 me-2"></i>
+                                    <span class="nav-label ms-1">Data Master</span>
+                                </a>
+                                <!-- Front Pages submenu list -->
+                                <ul class="mininav-content nav collapse">
+                                    
+                                    <li class="nav-item">
+                                        <a href="/data-master/jenis-product/" class="nav-link">Jenis Product</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/data-master/product/" class="nav-link">Product</a>
+                                    </li>
+                                </ul>
+                                <!-- END : Front Pages submenu list -->
+                            </li>
+                        </ul>
+                   </div>
+                    
                     <!-- END : Components Category -->
 
                     <!-- More Category -->
@@ -187,8 +211,8 @@
                             <i class="demo-pli-monitor-2"></i>
                         </div>
                         <!-- Widget content -->
-                        <div class="mininav-content collapse d-mn-max">        
-                            <div class="d-grid px-3 mt-3 ms-3">
+                        <div class="mininav-content collapse d-mn-max ms-3">        
+                            <div class="d-grid px-3 mt-1 ms-3">
                                 <form action="/auth/logout" method="POST">
                                     @csrf
                                     <button class="btn btn-sm btn-danger" type="submit">Logout</button>
@@ -205,5 +229,7 @@
 
             </div>
         </nav>
+         {{-- font awasome --}}
+    <script src="https://kit.fontawesome.com/1042f724b4.js" crossorigin="anonymous"></script>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- END - MAIN NAVIGATION -->

@@ -7,7 +7,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <meta name="description" content="A table library that works everywhere">
-    <title>Data Diri | Nifty - Admin Template</title>
+    <title>Product | Nifty - Admin Template</title>
 
     <!-- STYLESHEETS -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--- -->
@@ -67,13 +67,13 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                            <li class="breadcrumb-item"><a href="/data-diri/">Data Diri</a></li>
+                            <li class="breadcrumb-item"><a href="/data-master/product">Product</a></li>
                            
                         </ol>
                     </nav>
                     <!-- END : Breadcrumb -->
 
-                    <h1 class="page-title mb-4 mt-2">Data Diri</h1> 
+                    <h1 class="page-title mb-4 mt-2">Product</h1> 
                 </div>
 
             </div>
@@ -91,34 +91,47 @@
                                         aria-label="Close"></button>
                                 </div>
                             @endif
-                                <h2>Tabel Data Diri</h2>
-                                <button class="btn btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-plus me-2"></i>Tambah Data User</button>
+                                <h2>Tabel Data Product</h2>
+                                <button class="btn btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-plus me-2"></i>Tambah Data Product</button>
                             </div>
                             
-                            <table class="table" id="myTable">
+                            <table class="table" id="tableproduct">
                                 <thead>
                                   <tr>
                                     <th scope="col">No</th>
-                                    <th scope="col">Username</th>
-                                    <th scope="col">Email</th>
+                                    <th scope="col">Nama Product</th>
+                                    <th scope="col">Jenis Product</th>
+                                    <th scope="col">Deskripsi</th>
+                                    <th scope="col">Harga</th>
+                                    <th scope="col">Customer</th>
+                                    <th scope="col">Kode</th>
                                     <th scope="col">Action</th>
                              
                                   </tr>
                                 </thead>
-                                <tbody class="p-2">
-                                @foreach ($tabeluser as $data)
+                                <tbody>
+                                @foreach ($product as $item)
                                   <tr>
                                     <th scope="row">{{$loop->iteration}}</th>
-                                    <td>{{$data->username}}</td>
-                                    <td>{{$data->email}}</td>
-                                    <td><a id="button-edit" href="#" onclick="edit({{$data}})" type="button" class="btn btn-warning btn-sm" data-id='{{$data}}' data-bs-toggle="modal" data-bs-target="#exampleModal1">Edit</a> 
-                                        <a href="" type="button" class="btn btn-danger btn-sm" onclick="hapus({{$data->id}})" data-bs-toggle="modal" data-bs-target="#exampleModal2">Hapus</a> 
+                                    <td>{{$item->nama}}</td>
+                                    <td>{{$item->jenis_nama}}</td>
+                                    <td>{{$item->deskripsi}}</td>
+                                    <td>{{$item->harga}}</td>
+                                    <td>{{$item->user_nama}}</td>
+                                    <td>{{$item->kode}}</td>
+                                   
+                                   
+                                    <td><a id="button-edit" href="#" type="button" onclick="e({{ json_encode($item)}})" class="btn btn-warning btn-sm" data-id= '{{json_encode($item)}}' data-bs-toggle="modal" data-bs-target="#modal_edit">Edit</a> 
+                                        <a id="hapuss" href="" type="button" class="btn btn-danger btn-sm" onclick="del({{$item->id}})" data-bs-toggle="modal" data-bs-target="#exampleModal2">Hapus</a> 
                                       </td>
                                   </tr>
                                   @endforeach
                                 </tbody>
                               </table>
-                         
+                              {{-- <div class="text-center">
+                                {{ $product->links() }}
+                              </div> --}}
+                              
                              
                         </div>
                     </div>
@@ -133,24 +146,38 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Diri</h1>
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Product</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <form action="/data-diri/data" method="post">
+                      <form action="/data-master/product/tambah" method="post">
                         @csrf
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Username</label>
-                          <input type="text" name="username" class="form-control"  id="" aria-describedby="emailHelp" required>
+                          <label for="Nama" class="form-label">Nama</label>
+                          <input type="text" name="nama" class="form-control"  id="" aria-describedby="emailHelp" required>
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Email</label>
-                          <input type="email" class="form-control" name="email" id="exampleInputPassword1" required>
-                        </div> 
+                          <label for="Deskripsi" class="form-label">Deskripsi</label>
+                          <input type="text" name="deskripsi" class="form-control"  id="" aria-describedby="emailHelp" required>
+                        </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
-                        </div> 
+                          <label for="Harga" class="form-label">Harga</label>
+                          <input type="text" name="harga" class="form-control"  id="" aria-describedby="emailHelp" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="JenisProduct" class="form-label">Jenis Product</label>
+                          <select name="jenis_product_id" id="tambah_jp" class="form-control">
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="Customer" class="form-label">Customer</label>
+                          <select name="user_id" id="tambah_user" class="form-control">
+                          </select>
+                        </div>
+                        {{-- <div class="mb-3">
+                          <label for="kode_jenis" class="form-label">Kode</label>
+                          <input type="text" name="kode" class="form-control" id="kode_jenis" required>
+                        </div>  --}}
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -162,29 +189,43 @@
               </div>
 
        {{-- Modal edit --}}
-              <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal fade" id="modal_edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <form id="form_update"  method="post">
                         @csrf
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data Diri</h1>
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data Product</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                     
-                       
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Username</label>
-                          <input type="text" name="username" class="form-control" id="username_edit" aria-describedby="emailHelp" required>
+                          <label for="exampleInputEmail1" class="form-label">Nama</label>
+                          <input type="text" name="nama" class="form-control" id="namaEdit" aria-describedby="emailHelp" >
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Email</label>
-                          <input type="email" class="form-control" name="email" id="email_edit" required>
+                            <label for="JenisProduct" class="form-label">Jenis Product</label>
+                            <select name="jenis_product_id" class="form-control" id="tambahJp">
+                                
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Deskripsi</label>
+                          <textarea type="text" class="form-control" name="deskripsi" id="deskripsiId" ></textarea>
                         </div> 
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" name="password" class="form-control" id="password_edit">
+                            <label for="Harga" class="form-label">Harga</label>
+                            <input type="text" name="harga" class="form-control"  id="hargaEdit" aria-describedby="emailHelp" required>
+                          </div>
+                        <div class="mb-3">
+                            <label for="Customer" class="form-label">Customer</label>
+                            <select name="user_id" id="tambahUser" class="form-control">
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Kode</label>
+                          <input type="text" name="kode" class="form-control" id="kodeEdit" readonly> 
                         </div> 
                     </div>
                     <div class="modal-footer">
@@ -203,7 +244,7 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus Data Diri</h1>
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus Data Product</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -1179,43 +1220,90 @@
     {{-- font awasome --}}
     <script src="https://kit.fontawesome.com/1042f724b4.js" crossorigin="anonymous"></script>
 
+    {{-- Datatables --}}
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>
+        let table = new DataTable('#tableproduct',{
+            processing : true,
+            serverside : true,
+
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url: '/data-master/product/data',
+                method: 'GET',
+                dataType: 'json',
+                
+                success: function (response) {
+                    var select = $('#tambah_user'); //tambah data
+                    var jp = $('#tambah_jp'); //tambah data
+                    var user = $('#tambahUser'); //update data
+                    var jenis = $('#tambahJp');  //update data
+                    select.empty();
+                    jp.empty();
+                    user.empty();
+                    $.each(response.users, function(key, value) {
+                        select.append('<option value="' + value.id + '">' + value.username + '</option>');
+                    })
+                    $.each(response.jenisProducts, function(key, value) {
+                        jp.append('<option value="' + value.id + '">' + value.nama + '</option>');
+                    });
+                    $.each(response.users, function(key, value) {
+                        user.append('<option value="' + value.id + '">' + value.username + '</option>');
+                    });
+                    $.each(response.jenisProducts, function(key, value) {
+                        jenis.append('<option value="' + value.id + '">' + value.nama + '</option>');
+                    });
+                    
+                }
+               
+            });
+        });
+    </script>
+    
     <!-- Bootstrap JS [ OPTIONAL ] -->
     <script data-cfasync="false" src="../../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../../assets/js/bootstrap.min.bdf649e4bf3fa0261445f7c2ed3517c3f300c9bb44cb991c504bdc130a6ead19.js" defer></script>
 
     <!-- Nifty JS [ OPTIONAL ] -->
     <script src="../../assets/js/nifty.min.b53472f123acc27ffd0c586e4ca3dc5d83c0670a3a5e120f766f88a92240f57b.js" defer></script>
 
-    {{-- Datatables --}}
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-    <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script>
-        let table = new DataTable('#myTable');
-    </script>
     <!-- Plugin scripts [ OPTIONAL ] -->
     <script src="../../assets/pages/gridjs.min.d520dabe68d38340f7a56fda29a0b5ac8216fcbdc172a524cffb890c7a13db0d.js" defer></script>
     <script>
         let button_edit= document.getElementById('form_update');
         let button_hapus= document.getElementById('form_hapus');
-        let username_edit= document.getElementById('username_edit');
+        let deskripsiEdit= document.getElementById('deskripsiId');
         button_edit.addEventListener('click', function(){
             let id = JSON.parse(button_edit.getAttribute('data-id')) 
-            username_edit.value = id.username
-            email_edit.value = id.email
+            // deskripsiEdit.value = id.nama
+            // keterangan_edit.value = id.keterangan
             
             console.log(id);
         })
 
-        function edit(data){
-        //    console.log(id)
-            username_edit.value = data.username
-            email_edit.value = data.email
-            button_edit.setAttribute('action',"{{url('/data-diri/update')}}"+"/"+ data.id)
+        function e(item){
+            // let deskripsiEdit= document.getElementById('deskripsiId');
+            // let parsedata = JSON.parse(button_edit.getAttribute('data-id'));
+        //    console.log(item.jenis_nama)
+            namaEdit.value = item.nama
+            deskripsiEdit.value = item.deskripsi
+            tambahJp.value = item.jenis_nama
+            kodeEdit.value = item.kode
+            hargaEdit.value = item.harga
+            tambahUser.value = item.user_nama
+            console.log(tambah_jp.value)
+            // keterangan_edit.value = data.keterangan
+            // kode_edit.value = data.kode
+            button_edit.setAttribute('action',"{{url('/data-master/product/update')}}"+"/"+ item.id)
             
         }
-        function hapus(id){
+        function del(id){
             // console.log(izd);
            
-            button_hapus.setAttribute('action',"{{url('/data-diri/hapus')}}"+"/"+ id)
+            button_hapus.setAttribute('action',"{{url('/data-master/product/hapus')}}"+"/"+ id)
             
         }
     </script>

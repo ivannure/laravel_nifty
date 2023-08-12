@@ -53,7 +53,7 @@
                     <!-- End - Content Header - Left Side -->
 
                     <!-- Content Header - Right Side: -->
-                    <div class="header__content-end">
+                    {{-- <div class="header__content-end">
 
                         <!-- Mega Dropdown -->
                         <div class="dropdown">
@@ -371,7 +371,7 @@
                             <i class="demo-psi-dot-vertical"></i>
                         </button>
 
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </header>

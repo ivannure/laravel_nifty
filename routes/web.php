@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DatadiriController;
+use App\Http\Controllers\JenisProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,8 +49,30 @@ Route::prefix('auth')->group(function () {
 Route::prefix('data-diri')->group(function () {
    
     Route::get('/', [DatadiriController::class, 'index']);
-    Route::post('/store', [DatadiriController::class, 'store']);
+    Route::post('/data', [DatadiriController::class, 'data']);
+    Route::get('/simpan/{id}', [DatadiriController::class, 'simpan']);
+    Route::post('/hapus/{id}', [DatadiriController::class, 'destroy']);
+    Route::post('/update/{id}', [DatadiriController::class, 'update']);
+    // Route::put('/update/{id}', [DatadiriController::class, 'update'])->name('datadiri.update');
 
+});
+
+Route::prefix('data-master')->group(function () {
+    Route::prefix('/jenis-product')->group(function () {
+        Route::get('/', [JenisProductController::class, 'index']);
+        Route::post('/data', [JenisProductController::class, 'data']);
+        // Route::get('/simpan/{id}', [DatadiriController::class, 'simpan']);
+        Route::post('/hapus/{id}', [JenisProductController::class, 'destroy']);
+        Route::post('/update/{id}', [JenisProductController::class, 'update']);
+    });
+    Route::prefix('/product')->group(function () {
+        Route::get('/', [ProductController::class, 'index']);
+        Route::get('/data', [ProductController::class, 'data']);
+        Route::post('/tambah', [ProductController::class, 'tambah']);
+        // Route::get('/simpan/{id}', [DatadiriController::class, 'simpan']);
+        Route::post('/hapus/{id}', [ProductController::class, 'destroy']);
+        Route::post('/update/{id}', [ProductController::class, 'update']);
+    });
 });
 
 Route::prefix('tables')->group(function () {
@@ -62,3 +86,6 @@ Route::prefix('tables')->group(function () {
         return view('tables.tabulator.index');
     });
 });
+
+// Middleware
+

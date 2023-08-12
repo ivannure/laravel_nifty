@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
 class DatadiriController extends Controller
@@ -15,8 +16,9 @@ class DatadiriController extends Controller
      */
     public function index()
     {
-        $tabel = User::orderBy('created_at', 'desc')->paginate(10);
-        return view('data-diri.index', compact('tabel'));
+        $tabeluser = User::where('soft_delete',0)->get();
+        // dd($tabeluser);
+        return view('data-diri.index', compact('tabeluser'));
     }
 
     /**
@@ -35,7 +37,7 @@ class DatadiriController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function data(Request $request)
     {
         $user = new User(); // Membuat instance baru dari model User
 
@@ -53,20 +55,11 @@ class DatadiriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+   
+    public function simpan($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $user_edit = User::findOrFail($id);
+        return view('/data-diri/edit',compact('user_edit')); 
     }
 
     /**
@@ -78,7 +71,19 @@ class DatadiriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request->all());
+        $user_update = User::findOrFail($id);
+        $data = [
+            'username' => $request->username,
+            'email' => $request->email,
+        ];
+        if(!empty($request->password)){
+            $data["password"] = $request->password;
+        }
+        // dd($data);
+        $user_update->update($data);
+
+        return redirect('/data-diri/')->with('sukses','Data Berhasil Di Edit');
     }
 
     /**
@@ -89,6 +94,10 @@ class DatadiriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user_update = User::findOrFail($id);
+        
+        $user_update->update(['soft_delete'=>1]);
+        // dd($user_update);
+        return redirect('/data-diri/')->with('sukses','Data Berhasil Di Hapus');
     }
 }

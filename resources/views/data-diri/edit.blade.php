@@ -23,8 +23,6 @@
     <!-- Nifty CSS [ REQUIRED ] -->
     <link rel="stylesheet" href="../../assets/css/nifty.min.4d1ebee0c2ac4ed3c2df72b5178fb60181cfff43375388fee0f4af67ecf44050.css">
 
-    <!-- CSS Datatables -->
-    <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <!-- GridJS styles [ OPTIONAL ] -->
     <link rel="stylesheet" href="../../assets/pages/gridjs.e1d3038bb47390cb5f45d445324bacec91d3521551788d5d4898e460eda844a3.css">
 
@@ -61,7 +59,7 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <section id="content" class="content">
             <div class="content__header content__boxed overlapping">
-                <div class="content__wrap">
+                <div class="content__wrap mb-1">
 
                     <!-- Breadcrumb -->
                     <nav aria-label="breadcrumb">
@@ -73,11 +71,14 @@
                     </nav>
                     <!-- END : Breadcrumb -->
 
-                    <h1 class="page-title mb-4 mt-2">Data Diri</h1> 
+                    <h1 class="page-title mt-2">Data Diri</h1> 
                 </div>
+                
+                       
+                        
 
             </div>
-
+            
             <div class="content__boxed">
                 <div class="content__wrap">
                     <div class="card mb-3">
@@ -91,34 +92,45 @@
                                         aria-label="Close"></button>
                                 </div>
                             @endif
-                                <h2>Tabel Data Diri</h2>
-                                <button class="btn btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-plus me-2"></i>Tambah Data User</button>
+                                <h2>Edit Data Diri</h2>
+                               
                             </div>
+
                             
-                            <table class="table" id="myTable">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">Username</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Action</th>
-                             
-                                  </tr>
-                                </thead>
-                                <tbody class="p-2">
-                                @foreach ($tabeluser as $data)
-                                  <tr>
-                                    <th scope="row">{{$loop->iteration}}</th>
-                                    <td>{{$data->username}}</td>
-                                    <td>{{$data->email}}</td>
-                                    <td><a id="button-edit" href="#" onclick="edit({{$data}})" type="button" class="btn btn-warning btn-sm" data-id='{{$data}}' data-bs-toggle="modal" data-bs-target="#exampleModal1">Edit</a> 
-                                        <a href="" type="button" class="btn btn-danger btn-sm" onclick="hapus({{$data->id}})" data-bs-toggle="modal" data-bs-target="#exampleModal2">Hapus</a> 
-                                      </td>
-                                  </tr>
-                                  @endforeach
-                                </tbody>
-                              </table>
-                         
+                            
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                    
+                                        <form action="{{ route('datadiri.update', ['id' => $user_edit->id]) }}" method="post">
+                                        @csrf
+                                         @method('PUT')
+                                          
+                                            <div class="mb-3">
+                                              <label for="exampleInputEmail1" class="form-label">Username</label>
+                                              <input type="text" value="{{$user_edit->username}}" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="mb-3">
+                                              <label for="exampleInputEmail1" class="form-label">Email</label>
+                                              <input type="email" value="{{$user_edit->email}}" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="mb-3">
+                                              <label for="exampleInputEmail1" class="form-label">Password</label>
+                                              <input type="password" value="" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                            </div>
+                                            
+                                            
+                                            <div class="but">
+                                                <button type="submit" class="btn btn-info ">Batal</button>
+                                                <button type="submit" class="btn btn-warning ms-2">Update</button>
+                                              </div>
+                                            </form>
+                                            
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                              
                              
                         </div>
                     </div>
@@ -128,99 +140,6 @@
                 
             </div>
             
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Diri</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <form action="/data-diri/data" method="post">
-                        @csrf
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Username</label>
-                          <input type="text" name="username" class="form-control"  id="" aria-describedby="emailHelp" required>
-                        </div>
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Email</label>
-                          <input type="email" class="form-control" name="email" id="exampleInputPassword1" required>
-                        </div> 
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
-                        </div> 
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary">Tambah</button>
-                    </div>
-                  </form>
-                  </div>
-                </div>
-              </div>
-
-       {{-- Modal edit --}}
-              <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <form id="form_update"  method="post">
-                        @csrf
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data Diri</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                     
-                       
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Username</label>
-                          <input type="text" name="username" class="form-control" id="username_edit" aria-describedby="emailHelp" required>
-                        </div>
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Email</label>
-                          <input type="email" class="form-control" name="email" id="email_edit" required>
-                        </div> 
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" name="password" class="form-control" id="password_edit">
-                        </div> 
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-warning">Update</button>
-                    
-                      
-                    </div>
-                  </form>
-                  </div>
-                </div>
-              </div>
-
-              {{-- modal hapus --}}
-              <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus Data Diri</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                     Apakah Anda Yakin ingin Menghapus Data ini?
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                      <form id="form_hapus" method="post">
-                        @csrf
-                        <button type="submit" class="btn btn-danger">Hapus</button>
-                      </form>
-                      
-                    </div>
-                  </form>
-                  </div>
-                </div>
-              </div>
             <!-- FOOTER -->
             @include('layouts.footer')
             <!-- END - FOOTER -->
@@ -1185,40 +1104,9 @@
     <!-- Nifty JS [ OPTIONAL ] -->
     <script src="../../assets/js/nifty.min.b53472f123acc27ffd0c586e4ca3dc5d83c0670a3a5e120f766f88a92240f57b.js" defer></script>
 
-    {{-- Datatables --}}
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-    <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script>
-        let table = new DataTable('#myTable');
-    </script>
     <!-- Plugin scripts [ OPTIONAL ] -->
     <script src="../../assets/pages/gridjs.min.d520dabe68d38340f7a56fda29a0b5ac8216fcbdc172a524cffb890c7a13db0d.js" defer></script>
-    <script>
-        let button_edit= document.getElementById('form_update');
-        let button_hapus= document.getElementById('form_hapus');
-        let username_edit= document.getElementById('username_edit');
-        button_edit.addEventListener('click', function(){
-            let id = JSON.parse(button_edit.getAttribute('data-id')) 
-            username_edit.value = id.username
-            email_edit.value = id.email
-            
-            console.log(id);
-        })
 
-        function edit(data){
-        //    console.log(id)
-            username_edit.value = data.username
-            email_edit.value = data.email
-            button_edit.setAttribute('action',"{{url('/data-diri/update')}}"+"/"+ data.id)
-            
-        }
-        function hapus(id){
-            // console.log(izd);
-           
-            button_hapus.setAttribute('action',"{{url('/data-diri/hapus')}}"+"/"+ id)
-            
-        }
-    </script>
 </body>
 
 
